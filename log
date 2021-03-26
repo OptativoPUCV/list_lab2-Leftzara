@@ -1,0 +1,213 @@
+Fri Mar 26 19:46:34 UTC 2021: 
+ list.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+list.c:31:8: error: conflicting types for ‘createList’
+ List * createList(Node* head,Node* tail,Node* current) {
+        ^~~~~~~~~~
+In file included from list.c:4:0,
+                 from test.c:5:
+list.h:6:8: note: previous declaration of ‘createList’ was here
+ List * createList(void);
+        ^~~~~~~~~~
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:20: error: expected expression before ‘)’ token
+   List* List=(List*) malloc(sizeof(List))
+                    ^
+list.c:34:7: error: ‘List’ is a pointer; did you mean to use ‘->’?
+   List.tail=tail;
+       ^
+       ->
+list.c:35:7: error: ‘List’ is a pointer; did you mean to use ‘->’?
+   List.current=current;
+       ^
+       ->
+test.c: In function ‘test_create’:
+test.c:79:15: error: too few arguments to function ‘createList’
+     List* L = createList();
+               ^~~~~~~~~~
+In file included from test.c:5:0:
+list.c:31:8: note: declared here
+ List * createList(Node* head,Node* tail,Node* current) {
+        ^~~~~~~~~~
+Compilation failed
+Fri Mar 26 19:47:43 UTC 2021: 
+ list.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+list.c:31:19: error: expected declaration specifiers or ‘...’ before ‘*’ token
+ List * createList(*Node head,*Node tail,*Node current) {
+                   ^
+list.c:31:30: error: expected declaration specifiers or ‘...’ before ‘*’ token
+ List * createList(*Node head,*Node tail,*Node current) {
+                              ^
+list.c:31:41: error: expected declaration specifiers or ‘...’ before ‘*’ token
+ List * createList(*Node head,*Node tail,*Node current) {
+                                         ^
+Compilation failed
+Fri Mar 26 19:51:36 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:20: error: expected expression before ‘)’ token
+   List* List=(List*) malloc(sizeof(List))
+                    ^
+list.c:34:7: error: ‘List’ is a pointer; did you mean to use ‘->’?
+   List.tail=NULL;
+       ^
+       ->
+list.c:35:7: error: ‘List’ is a pointer; did you mean to use ‘->’?
+   List.current=NULL;
+       ^
+       ->
+Compilation failed
+Fri Mar 26 19:52:12 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:20: error: expected expression before ‘)’ token
+   List* List=(List*) malloc(sizeof(List))
+                    ^
+Compilation failed
+Fri Mar 26 19:52:24 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:20: error: invalid operands to binary * (have ‘List * {aka struct List *}’ and ‘void *’)
+   List* List=(List)* malloc(sizeof(List))
+                    ^ ~~~~~~~~~~~~~~~~~~~~
+list.c:33:3: error: expected ‘,’ or ‘;’ before ‘List’
+   List->head=NULL;
+   ^~~~
+Compilation failed
+Fri Mar 26 19:53:12 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:21: error: expected ‘,’ or ‘;’ before ‘malloc’
+   List* List=(List) malloc(sizeof(List))
+                     ^~~~~~
+Compilation failed
+Fri Mar 26 19:53:24 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:21: error: expected ‘,’ or ‘;’ before ‘malloc’
+   List* List=(List) malloc(sizeof(List));
+                     ^~~~~~
+Compilation failed
+Fri Mar 26 19:53:31 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:21: error: expected ‘,’ or ‘;’ before ‘malloc’
+   List* List=(List) malloc(sizeof(List));
+                     ^~~~~~
+Compilation failed
+Fri Mar 26 19:53:43 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:20: error: invalid operands to binary * (have ‘List * {aka struct List *}’ and ‘void *’)
+   List* List=(List)* malloc(sizeof(List));
+                    ^ ~~~~~~~~~~~~~~~~~~~~
+Compilation failed
+Fri Mar 26 19:53:53 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:33: error: expected ‘)’ before ‘;’ token
+   List* List=(List)* malloc(List;sizeof(List));
+                                 ^
+list.c:32:29: error: passing argument 1 of ‘malloc’ makes integer from pointer without a cast [-Werror=int-conversion]
+   List* List=(List)* malloc(List;sizeof(List));
+                             ^~~~
+In file included from test.c:2:0:
+/usr/include/stdlib.h:539:14: note: expected ‘size_t {aka long unsigned int}’ but argument is of type ‘List * {aka struct List *}’
+ extern void *malloc (size_t __size) __THROW __attribute_malloc__ __wur;
+              ^~~~~~
+In file included from test.c:5:0:
+list.c:32:20: error: invalid operands to binary * (have ‘List * {aka struct List *}’ and ‘void *’)
+   List* List=(List)* malloc(List;sizeof(List));
+                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+Fri Mar 26 19:54:01 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:29: error: passing argument 1 of ‘malloc’ makes integer from pointer without a cast [-Werror=int-conversion]
+   List* List=(List)* malloc(List,sizeof(List));
+                             ^~~~
+In file included from test.c:2:0:
+/usr/include/stdlib.h:539:14: note: expected ‘size_t {aka long unsigned int}’ but argument is of type ‘List * {aka struct List *}’
+ extern void *malloc (size_t __size) __THROW __attribute_malloc__ __wur;
+              ^~~~~~
+In file included from test.c:5:0:
+list.c:32:22: error: too many arguments to function ‘malloc’
+   List* List=(List)* malloc(List,sizeof(List));
+                      ^~~~~~
+In file included from test.c:2:0:
+/usr/include/stdlib.h:539:14: note: declared here
+ extern void *malloc (size_t __size) __THROW __attribute_malloc__ __wur;
+              ^~~~~~
+In file included from test.c:5:0:
+list.c:32:20: error: invalid operands to binary * (have ‘List * {aka struct List *}’ and ‘void *’)
+   List* List=(List)* malloc(List,sizeof(List));
+                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+Fri Mar 26 19:54:11 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:20: error: invalid operands to binary * (have ‘List * {aka struct List *}’ and ‘void *’)
+   List* List=(List)* malloc(sizeof(List));
+                    ^ ~~~~~~~~~~~~~~~~~~~~
+Compilation failed
+Fri Mar 26 19:55:24 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:21: error: invalid operands to binary * (have ‘List * {aka struct List *}’ and ‘void *’)
+   List* List=(List) *malloc(sizeof(List));
+                     ^~~~~~~~~~~~~~~~~~~~~
+Compilation failed
+Fri Mar 26 19:55:39 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:14: error: ‘Void’ undeclared (first use in this function); did you mean ‘void’?
+   List* List=Void *malloc(sizeof(List));
+              ^~~~
+              void
+list.c:32:14: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+Fri Mar 26 19:56:01 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:0:
+list.c: In function ‘createList’:
+list.c:32:19: error: invalid operands to binary * (have ‘List * {aka struct List *}’ and ‘void *’)
+   List* List=List *malloc(sizeof(List));
+                   ^~~~~~~~~~~~~~~~~~~~~
+Compilation failed
+Fri Mar 26 19:57:23 UTC 2021: 
+ list.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+ tests:  1|5
+total_score: 10/70
+e5603c5
