@@ -75,6 +75,7 @@ void pushFront(List * list, const void * data) {
     list->head=aux;
   }else{
     list->head=aux;
+    list->tail=aux;
   }
 }
 
